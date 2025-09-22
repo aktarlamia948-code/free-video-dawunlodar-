@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Downloader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 22px;
+      color: #333;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #1e40af;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 14px;
+      color: green;
+    }
+    a.download-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #10b981;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📥 Video Downloader</h1>
+    <input type="text" id="videoURL" placeholder="Paste video link here">
+    <button onclick="downloadVideo()">Download</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function downloadVideo() {
+      let url = document.getElementById("videoURL").value;
+      let resultDiv = document.getElementById("result");
+
+      if(url === "") {
+        resultDiv.innerHTML = "❌ Please enter a video link!";
+        resultDiv.style.color = "red";
+        return;
+      }
+
+      // Demo: Send user to Snaptik or Y2mate for actual download
+      let downloadLink = "https://snaptik.app/?" + "url=" + encodeURIComponent(url);
+
+      resultDiv.innerHTML = `
+        ✅ Link Ready! <br>
+        <a class="download-link" href="${downloadLink}" target="_blank">Download Now</a>
+      `;
+    }
+  </script>
+</body>
+</html>
